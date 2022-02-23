@@ -11,24 +11,26 @@ local LastNames = {
 }
   
 for count = 1,10 do
- print(FirstNames[math.random(1,3)])
- print(LastNames[math.random(1,3)])
+ print(FirstNames[math.random(1,3)], LastNames[math.random(1,3)])
  print()
 end
 local function CustomName()
-  io.write("Insert any First Name")
+  io.write("Insert any First Name: ")
+  print()
   local firstName = io.read()
   table.insert(FirstNames, firstName)
-  io.write("Insert any Last Name")
+  io.write("Insert any Last Name: ")
+  print()
   local lastName = io.read()
   table.insert(LastNames, lastName)
   local name = tostring(firstName)..(" ")..tostring(lastName)
-  print(name)
+  print("Added Custom Name Succesfully. Result: ".. name)
+  return name  
 end
-io.write("Do youwant to add a custom name? y/n")
-bool = tostring(io.read)
-  if (bool = "y")
-  then
+    
+io.write("Do you want to add a custom name? y/n :")
+choice = io.read()
+if choice == "y"
+then
     CustomName()
-end
-  
+end  
