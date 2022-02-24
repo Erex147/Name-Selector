@@ -1,4 +1,4 @@
-entrypoint = "main.lua"
+entrypoint = "NameSelector.lua"
 
 [interpreter]
 command = [
