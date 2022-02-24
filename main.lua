@@ -11,7 +11,8 @@ local FirstNames = {
     "Tank",
     "Terrance",
     "Robert",
-    "Richard"
+    "Richard",
+    "Donald"
 }
 
 local LastNames = {
@@ -26,22 +27,34 @@ local LastNames = {
     "Harper",
     "Dempsey",
     "Brooks",
-    "Roberts"
+    "Roberts",
+    "Jackson"
 }
 
-
-
-
-
-  
 local busy = false
-local function PrintNames()
-  for count = 0,100,0.1 do
-    print(FirstNames[math.random(1,#FirstNames)], 
-        LastNames[math.random(1,#LastNames)])
-        print()
-  end   
+
+local function PrintFirstName(value)
+  for count = 1, value do
+   if #FirstNames ~= 0 then
+        print(FirstNames[math.random(1,#FirstNames)])
+   else print(" ")
+   end   
+ end
 end
+
+local function PrintLastName(value)
+  for count = 1, value do
+   if #LastNames ~= 0 then
+        print(LastNames[math.random(1,#LastNames)])
+   else print(" ")
+   end   
+ end
+end
+
+local function PrintNames()
+  PrintFirstName(1)
+  PrintLastName(1)  
+end   
 
 function InsertLName()
   io.write("Insert any Last Name: ")
@@ -71,16 +84,22 @@ print()
 io.write("What do you want to do?")
 print()    
 local choice = io.read()
+print()    
  if choice == "print names" then
-    PrintNames()
- elseif choice == "add custom names" then
-    CustomName()
- elseif choice == "add f n" then
-    InsertFName()
- elseif choice == "add l n" then
-    InsertLName()
+    PrintNames()  
+ elseif choice == "add custom name" then
+    CustomName()   
+ elseif choice == "add first name" then
+    InsertFName()  
+ elseif choice == "add last name" then
+    InsertLName()   
  elseif choice == "stop" then
- break
+    break
+ elseif choice == "clear first names" then
+    FirstNames = {}
+ elseif choice == "clear last names" then
+    LastNames = {}     
+ else print("Not Valid Command")    
  end  
  busy = false
 end
