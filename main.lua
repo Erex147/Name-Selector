@@ -1,51 +1,86 @@
-
-  local FirstNames = {
-    "Elphias",
-    "James",
-    "Robert"
+local FirstNames = {
+    "Alex",
+    "Frank",
+    "Bruce",
+    "Daniel",
+    "David",
+    "Jason",
+    "John",
+    "Joseph",
+    "Mike",
+    "Tank",
+    "Terrance",
+    "Robert",
+    "Richard"
 }
 
 local LastNames = {
-    "Doge",
-    "Charlie",
-    "Smithson"
+    "Mason",
+    "Woods",
+    "Harris",
+    "Clarke",
+    "Lynch",
+    "Hudson",
+    "Kennedy",
+    "Bowman",
+    "Harper",
+    "Dempsey",
+    "Brooks",
+    "Roberts"
 }
 
-local function CustomName()
-  io.write("Insert any First Name: ")
-  print()
-  local firstName = io.read()
-  table.insert(FirstNames, firstName)
-  io.write("Insert any Last Name: ")
-  print()
-  local lastName = io.read()
-  table.insert(LastNames, lastName)
-  local name = tostring(firstName)..(" ")..tostring(lastName)
-  print("Added Custom Name Succesfully. Result: ".. name)
-  return name 
-end
+
+
+
+
   
 local busy = false
 local function PrintNames()
-  for count = 1,10 do
+  for count = 0,100,0.1 do
     print(FirstNames[math.random(1,#FirstNames)], 
         LastNames[math.random(1,#LastNames)])
         print()
   end   
-end  
+end
+
+function InsertLName()
+  io.write("Insert any Last Name: ")
+  print()
+  local lastName = io.read()
+  table.insert(LastNames, lastName)   
+  return lastName    
+end   
+
+function InsertFName()
+  io.write("Insert any First Name: ")
+  print()
+  local firstName = io.read()
+  table.insert(FirstNames, firstName)
+  return firstName 
+end
+      
+local function CustomName()
+  local name = tostring(InsertFName())..(" ")..tostring(InsertLName())
+  print("Added Custom Name Succesfully. Result: ".. name)
+  return name 
+end
+
 while not busy do
 busy = true
-io.write("Do you want to print names?")
+print()
+io.write("What do you want to do?")
+print()    
 local choice = io.read()
- if choice == "y" then
+ if choice == "print names" then
     PrintNames()
- elseif choice == "n" then
-    io.write("Do you want to add a custom name? y/n :")
-local choice = io.read()
-if choice == "y"
-then
+ elseif choice == "add custom names" then
     CustomName()
-end  
- end
-  busy = false
+ elseif choice == "add f n" then
+    InsertFName()
+ elseif choice == "add l n" then
+    InsertLName()
+ elseif choice == "stop" then
+ break
+ end  
+ busy = false
 end
