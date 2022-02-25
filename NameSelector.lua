@@ -108,26 +108,26 @@ io.write("What do you want to do?")
 print()    
 local choice = io.read()
 print()    
- if choice == "print names" then
+ if choice == "print ns" then
     io.write("Enter Number")
     print()
     value = io.read()  
     PrintNames(value)  
- elseif choice == "add custom name" then
+ elseif choice == "add custom n" then
     CustomName()   
- elseif choice == "add first name" then
+ elseif choice == "add f n" then
     InsertFName()  
- elseif choice == "add last name" then
+ elseif choice == "add l n" then
     InsertLName()
  elseif choice == "stop" then
     break
- elseif choice == "clear first names" then
+ elseif choice == "clear f n" then
     FirstNames = {}
- elseif choice == "clear last names" then
+ elseif choice == "clear l ns" then
     LastNames = {}
- elseif choice == "delete first name" then
+ elseif choice == "delete f n" then
     DeleteN(FirstNames)
- elseif choice == "delete last name" then
+ elseif choice == "delete l n" then
     DeleteN(LastNames)
  else print("Not Valid Command")    
  end  
