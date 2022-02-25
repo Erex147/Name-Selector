@@ -31,6 +31,8 @@ local LastNames = {
     "Jackson"
 }
 
+local menu = {"print ns","add custom n","add f n","add l n","clear f ns","clear l ns","delete f n","delete l n","stop"}  
+
 local busy = false
 
 local function PrintFirstName(value)
@@ -45,7 +47,7 @@ end
 local function PrintLastName(value)
   for count = 1, value do
    if #LastNames ~= 0 then    
-   print(LastNames[math.random(1,#LastNames)])
+print(LastNames[math.random(1,#LastNames)])
    else print(" ")
    end   
  end
@@ -88,10 +90,17 @@ function is_numeric(x)
   return false
 end
 
+local function printContent(tab)
+    for i,v in ipairs(tab) do
+      print(i,v)
+      print()
+    end
+end 
+
 local function DeleteN(tab)
        for i,v in ipairs(tab) do
-      print(i,v)
-    end
+         print(i,v)
+       end
   io.write("Which name would you like to delete? Enter Number")
   local choice = io.read()
   print()
@@ -100,18 +109,20 @@ local function DeleteN(tab)
       else print("not valid number")  
       end   
 end
-
+  
 while not busy do
 busy = true
 print()
 io.write("What do you want to do?")
-print()    
+print()
+printContent(menu)  
 local choice = io.read()
 print()    
  if choice == "print ns" then
     io.write("Enter Number")
     print()
-    value = io.read()  
+    value = io.read()
+    print()  
     PrintNames(value)  
  elseif choice == "add custom n" then
     CustomName()   
@@ -121,7 +132,7 @@ print()
     InsertLName()
  elseif choice == "stop" then
     break
- elseif choice == "clear f n" then
+ elseif choice == "clear f ns" then
     FirstNames = {}
  elseif choice == "clear l ns" then
     LastNames = {}
