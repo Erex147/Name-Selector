@@ -11,4 +11,6 @@ Listed below are the commands for the selector.(Please ignore the brackets):
 4. (add l n): basically add f n but with your desired last name
 5. (clear f ns): clears all first names
 6. (clear l ns): clears all last names
-
+7. (delete f n): deletes a first name of your choice
+8. (delete l n): deletes a last name of your choice
+9. (stop): stops the program
